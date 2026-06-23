@@ -122,20 +122,6 @@ directly comparable to the reference baselines.
 
 ---
 
-## Citation
-
-```bibtex
-@article{epistasis_blindspot_2026,
-  title  = {Protein variant-effect models predict single-mutation effects but not epistasis},
-  author = {<authors>},
-  year   = {2026},
-  note   = {EpiGym v1.2}
-}
-```
-
-Please **also cite the upstream data sources** (ProteinGym, Tsuboyama et al. 2023,
-SKEMPI 2.0, and the MAAD compilation) listed in `DATASHEET.md`.
-
 ## License & caveats
 
 Derived annotations in EpiGym (measured ε, frozen splits, epistasis-type labels,
