@@ -1,0 +1,78 @@
+{
+  "benchmark": "EpiGym",
+  "version": "1.2",
+  "description": "A diagnostic benchmark for compositional (multi-mutation) generalization and direct prediction of measured epistasis in protein variant-effect models.",
+  "tasks": [
+    {
+      "id": "T1_generalization",
+      "name": "High-order generalization",
+      "data": "data/proteingym_dms.csv",
+      "input": "mutations (apply to proteingym_assays.wildtype_sequence)",
+      "target": "score",
+      "metric": "Spearman rho (per assay, then mean)",
+      "splits": [
+        "split_random",
+        "split_single_to_multi",
+        "split_low_to_high_k1",
+        "split_low_to_high_k2",
+        "split_seen_marginal_unseen_combo",
+        "split_epistasis_enriched",
+        "split_distance_controlled"
+      ],
+      "protocol": "Train on split=='train', evaluate on split=='test'. Headline = drop from random to distance_controlled.",
+      "baseline": "baselines/proteingym_generalization_leaderboard.csv"
+    },
+    {
+      "id": "T2_epistasis_prediction",
+      "name": "Direct epistasis prediction (blind-spot task)",
+      "data": "data/tsuboyama_stability_doubles.csv",
+      "input": "mutant (double)",
+      "target": "epistasis",
+      "metric": "per-domain |Spearman| between predicted and measured epistasis, then median over domains",
+      "protocol": "Zero-shot or trained; predict the epistatic residual directly. Additive models score ~0.",
+      "baseline": "baselines/tsuboyama_epistasis_leaderboard.csv"
+    },
+    {
+      "id": "T3_epistasis_stratified",
+      "name": "Epistasis-stratified accuracy",
+      "data": "data/proteingym_dms.csv",
+      "target": "score",
+      "stratify_by": "abs_epistasis (quintiles)",
+      "metric": "within-quintile Spearman; headline = top-quintile 'cliff'",
+      "protocol": "Report accuracy within each measured-epistasis quintile."
+    },
+    {
+      "id": "T4_contact_epistasis",
+      "name": "Contact-resolved epistasis",
+      "data": "data/tsuboyama_stability_doubles.csv",
+      "target": "epistasis",
+      "stratify_by": "cb_distance (<8A vs >=8A)",
+      "metric": "|Spearman| at contacts vs distant pairs",
+      "baseline": "baselines/tsuboyama_epistasis_predictions_per_double.csv"
+    },
+    {
+      "id": "T5_cross_assay_escape",
+      "name": "Antibody-escape generalization",
+      "data": "data/maad_escape.csv",
+      "target": "label",
+      "metric": "AUROC (per split)",
+      "splits": [
+        "split_random",
+        "split_seen_positions_unseen_combinations",
+        "split_ba12_to_xbb_bq",
+        "split_low_to_high_burden",
+        "split_pre_omicron_to_omicron",
+        "split_cross_virus_hardest"
+      ],
+      "baseline": "baselines/maad_escape_leaderboard.csv"
+    },
+    {
+      "id": "T_binding_epistasis",
+      "name": "Binding epistasis (auxiliary)",
+      "data": "data/skempi_binding.csv",
+      "target": "epistasis",
+      "type_annotation": "data/skempi_epistasis_type.csv",
+      "metric": "Spearman; report by order k; epistasis type composition from skempi_epistasis_type.csv"
+    }
+  ]
+}

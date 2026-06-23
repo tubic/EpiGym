@@ -1,0 +1,191 @@
+{
+  "proteingym_assays.csv": {
+    "rows": 12,
+    "cols": [
+      "assay_id",
+      "protein_id",
+      "phenotype_type",
+      "wildtype_sequence",
+      "seq_len",
+      "n_variants",
+      "n_multi"
+    ],
+    "mb": 0.01,
+    "note": "Per-assay wildtype sequence and metadata (12 ProteinGym DMS assays)."
+  },
+  "proteingym_dms.csv.gz": {
+    "rows": 1504667,
+    "cols": [
+      "assay_id",
+      "mutations",
+      "mutation_count",
+      "score",
+      "additive_pred",
+      "epistasis",
+      "abs_epistasis",
+      "split_random",
+      "split_single_to_multi",
+      "split_low_to_high_k1",
+      "split_low_to_high_k2",
+      "split_seen_marginal_unseen_combo",
+      "split_epistasis_enriched",
+      "split_distance_controlled"
+    ],
+    "mb": 52.04,
+    "note": "Variant-level ProteinGym fitness with additive prediction, measured epistasis, and 7 frozen splits (values train/test/val/unused). Reconstruct mutant sequence from proteingym_assays.wildtype_sequence + mutations."
+  },
+  "tsuboyama_stability_doubles.csv": {
+    "rows": 50812,
+    "cols": [
+      "DMS_id",
+      "mutant",
+      "score",
+      "additive_pred",
+      "epistasis",
+      "abs_epistasis",
+      "epistasis_z",
+      "cb_distance"
+    ],
+    "mb": 6.7,
+    "note": "Tsuboyama double mutants: measured ddG (score), additive prediction, measured epistasis (raw, |.|, per-domain z), and Cbeta-Cbeta distance (A) between the two mutated residues."
+  },
+  "tsuboyama_all_variants.csv.gz": {
+    "rows": 117811,
+    "cols": [
+      "DMS_id",
+      "mutant",
+      "DMS_score",
+      "mutated_sequence"
+    ],
+    "mb": 1.37,
+    "note": "All Tsuboyama variants (singles + doubles): measured ddG and full mutant sequence."
+  },
+  "skempi_binding.csv": {
+    "rows": 685,
+    "cols": [
+      "pdb",
+      "muts",
+      "k",
+      "ddg",
+      "additive_pred",
+      "epistasis"
+    ],
+    "mb": 0.06,
+    "note": "SKEMPI multi-mutant binding: order k (2-8), measured ddG of binding, additive prediction, and measured epistasis."
+  },
+  "skempi_epistasis_type.csv": {
+    "rows": 621,
+    "cols": [
+      "pdb",
+      "muts",
+      "ddg_A",
+      "ddg_B",
+      "ddg_AB",
+      "epistasis",
+      "type"
+    ],
+    "mb": 0.07,
+    "note": "SKEMPI double-mutant epistasis type from signed component ddGs: additive/magnitude/sign/reciprocal-sign (threshold 0.3 kcal/mol). Repeated (pdb,muts) rows are independent measurements."
+  },
+  "maad_escape.csv.gz": {
+    "rows": 46816,
+    "cols": [
+      "row_id",
+      "name",
+      "AborNb",
+      "Virus",
+      "VHorVHH",
+      "VL",
+      "CDRH3_imgt",
+      "Protein_Epitope",
+      "pub_date",
+      "variant",
+      "label",
+      "mutation_count",
+      "mutation_positions",
+      "mutation_signature",
+      "variant_family",
+      "mutation_burden_bin",
+      "omicron_subfamily",
+      "is_xbb_bq",
+      "antibody_group",
+      "split_random",
+      "split_antibody_group",
+      "split_variant_holdout",
+      "split_cross_virus",
+      "split_low_to_high_burden",
+      "split_pre_omicron_to_omicron",
+      "split_ba12_to_xbb_bq",
+      "split_seen_positions_unseen_combinations",
+      "split_antibody_group_variant_double_holdout",
+      "split_cross_virus_hardest"
+    ],
+    "mb": 5.05,
+    "note": "Antibody x SARS-CoV-2 variant neutralization (label: 1=escape/non-neutralized). Antibody identity + VH/VL/CDRH3 sequence, viral variant + mutation metadata, and 9 frozen splits (train/test)."
+  },
+  "proteingym_generalization_leaderboard.csv": {
+    "rows": 2580,
+    "cols": [
+      "family",
+      "model_label",
+      "assay_id",
+      "split",
+      "evaluated_rows",
+      "train_rows",
+      "test_rows",
+      "spearman",
+      "pearson",
+      "rmse",
+      "mae"
+    ],
+    "mb": 0.38,
+    "note": "Reference scores: 31 models x 12 assays x 7 splits -> Spearman/Pearson/RMSE/MAE (generalization task)."
+  },
+  "tsuboyama_epistasis_leaderboard.csv": {
+    "rows": 8,
+    "cols": [
+      "model",
+      "paradigm",
+      "median_abs_rho",
+      "mean_abs_rho",
+      "n_domains"
+    ],
+    "mb": 0.0,
+    "note": "Reference scores (matches eval/evaluate.py T2): per-domain |Spearman| between predicted and directly-measured double-mutant epistasis on the unsaturated subset (score & additive_pred within [15,85]% per domain), >=15 doubles/domain, median over domains. Additive models score ~0 by construction."
+  },
+  "tsuboyama_epistasis_predictions_per_double.csv": {
+    "rows": 50812,
+    "cols": [
+      "mutant",
+      "DMS_id",
+      "dist",
+      "epistasis",
+      "abs_epistasis",
+      "epistasis_z",
+      "eps_EVmutation",
+      "eps_SPURS",
+      "eps_ESM2-650M",
+      "eps_ESM2-3B",
+      "eps_ESM1v",
+      "eps_ProSST",
+      "eps_ESM-C",
+      "eps_PoET"
+    ],
+    "mb": 11.35,
+    "note": "Per-double reference: measured epistasis (+|.|, z) and each model's predicted epistasis (8 models, incl. ESM-C and PoET), with Cb distance."
+  },
+  "maad_escape_leaderboard.csv": {
+    "rows": 6,
+    "cols": [
+      "split",
+      "n_test",
+      "additive_auroc",
+      "additive_auprc",
+      "interaction_auroc",
+      "interaction_auprc",
+      "auroc_gain"
+    ],
+    "mb": 0.0,
+    "note": "Reference scores: additive vs interaction-capturing classifier AUROC/AUPRC per MAAD split."
+  }
+}

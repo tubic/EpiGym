@@ -1,0 +1,9 @@
+model,paradigm,median_abs_rho,mean_abs_rho,n_domains
+ProSST,structure-aware PLM,0.3221,0.353,50
+ESM2-650M,PLM,0.3195,0.3098,50
+PoET,autoregressive (MSA),0.3157,0.2969,49
+ESM-C,PLM,0.3077,0.3046,49
+EVmutation,coevolution,0.2284,0.2701,47
+ESM1v,PLM,0.2181,0.2309,50
+ESM2-3B,PLM,0.2164,0.2525,50
+SPURS,structure (ddG),0.0949,0.1093,50
