@@ -3,9 +3,7 @@
 *A diagnostic benchmark for compositional (multi-mutation) generalization and the direct
 prediction of measured epistasis in protein variant-effect models.*
 
-This release accompanies the paper *"Protein variant-effect models predict single-mutation effects but not epistasis"* and packages everything needed to **reproduce its evaluation and
-score new models** on the same footing. EpiGym is a **data + reference-leaderboard +
-evaluator** release; it does **not** ship model weights or embeddings.
+This release packages everything needed to **reproduce its evaluation and score new models** on the same footing. EpiGym is a **data + reference-leaderboard + evaluator** release; it does **not** ship model weights or embeddings.
 
 ---
 
