@@ -1,0 +1,10 @@
+{
+  "task": "T2_epistasis_prediction",
+  "protocol": "unsaturated subset [15,85]%",
+  "median_abs_spearman": 0.3112,
+  "mean_abs_spearman": 0.3064,
+  "n_domains": 4,
+  "n_expected": 275,
+  "n_predicted": 275,
+  "prediction_coverage": 1.0
+}

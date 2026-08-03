@@ -1,0 +1,16 @@
+{
+  "data_type": "real benchmark subset",
+  "reference_source": "data/tsuboyama_stability_doubles.csv",
+  "prediction_source": "baselines/tsuboyama_epistasis_predictions_per_double.csv",
+  "prediction_column": "eps_ProSST",
+  "selection_rule": "Select the first four DMS_id values in lexical order among domains with at least 120 complete ProSST predictions; within each domain, sort by mutant and take the first 120 rows. The metric is not inspected during selection.",
+  "domains": [
+    "AMFR_HUMAN_Tsuboyama_2023_4G3O",
+    "BBC1_YEAST_Tsuboyama_2023_1TG0",
+    "BCHB_CHLTE_Tsuboyama_2023_2KRU",
+    "CATR_CHLRE_Tsuboyama_2023_2AMI"
+  ],
+  "rows_per_domain": 120,
+  "total_rows": 480,
+  "purpose": "Software demonstration only; use the full benchmark for scientific comparison."
+}
