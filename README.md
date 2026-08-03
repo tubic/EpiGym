@@ -79,8 +79,7 @@ verification environment.
 1. Extract the archive and enter its top-level directory:
 
    ```bash
-   unzip EpiGym_v1.2_software.zip
-   cd EpiGym_v1.2_software
+   cd EpiGym_v1.2
    ```
 
 2. Create and activate a virtual environment (POSIX shells):
