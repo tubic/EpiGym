@@ -332,6 +332,4 @@ release archive. Upstream data references are listed in `DATASHEET.md`.
 ## License and data notice
 
 Derived EpiGym annotations, frozen splits, leaderboards, task cards, and evaluation code
-are released under CC-BY-4.0. The underlying measurements and sequences retain the terms
-of their original sources. The MAAD source table is not redistributed; see `LICENSE.md`
-and `DATASHEET.md`.
+are released under CC-BY-4.0.
