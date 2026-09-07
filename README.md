@@ -310,7 +310,6 @@ EpiGym_v1.2_software/
 ├── LICENSE.md
 ├── tasks.json
 ├── MANIFEST.json
-├── CHECKSUMS.sha256
 ├── data/                 bundled benchmark tables (MAAD source table excluded)
 ├── baselines/            reference leaderboards and per-double predictions
 ├── eval/                 standalone evaluator and validity checks
@@ -324,9 +323,7 @@ user-supplied; the derived MAAD reference leaderboard remains bundled.
 
 ## Project repository
 
-The canonical repository and issue tracker are at https://github.com/tubic/EpiGym. A
-public release should use a versioned tag whose files and `CHECKSUMS.sha256` match this
-release archive. Upstream data references are listed in `DATASHEET.md`.
+The canonical repository and issue tracker are at https://github.com/tubic/EpiGym.
 
 ## License and data notice
 
